@@ -49,9 +49,9 @@ const CTASection = () => {
           </p>
 
           <Link
-            to="/bookin"
+            to="/booking"
             // Custom button styling to match the Sage/Cream palette
-            className="bg-[#fdfcf0] text-[#88a382] px-12 py-4 rounded-full text-sm font-bold tracking-widest uppercase hover:bg-white transition-all duration-300 inline-block shadow-xl hover:shadow-2xl active:scale-95"
+            className="bg-primary text-white px-12 py-4 rounded-full text-sm font-bold tracking-widest uppercase  transition-all hover:opacity-90 duration-300 inline-block shadow-xl hover:shadow-2xl active:scale-95"
           >
             Book Now
           </Link>

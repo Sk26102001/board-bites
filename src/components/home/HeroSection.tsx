@@ -22,9 +22,30 @@ const HeroSection = () => {
         
       />
 
-<div>
+{/* <div>
   <img src={logo} alt="Bite Logo" className="absolute top-6 left-10 w-60 h-28 z-20 brightness-[3]" />
+</div> */}
+
+<div>
+  <img
+    src={logo}
+    alt="Bite Logo"
+    className="
+      absolute 
+      top-4 left-4
+      sm:top-6 sm:left-6
+      md:top-6 md:left-10
+      w-40 
+      sm:w-52 
+      md:w-64 
+      lg:w-72 
+      h-auto 
+      z-20 
+      brightness-[3]
+    "
+  />
 </div>
+
 
 
       <div className="hero-overlay absolute inset-0" />
@@ -63,13 +84,13 @@ const HeroSection = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <Link
-            to="/bookin"
+            to="/booking"
             className="sage-gradient text-primary-foreground px-10 py-4 rounded-full text-lg font-semibold font-body tracking-wide uppercase hover:opacity-90 transition-opacity"
           >
             Book Now
           </Link>
           <Link
-            to="/men"
+            to="/menu"
             className="border-2 border-primary-foreground/40 text-primary-foreground px-10 py-4 rounded-full text-lg font-semibold font-body tracking-wide uppercase hover:bg-primary-foreground/10 transition-colors"
           >
             Explore Menu

@@ -4,7 +4,8 @@ import FeaturedCarts from "@/components/home/FeaturedCarts";
 import PopularEvents from "@/components/home/PopularEvents";
 import HowItWorks from "@/components/home/HowItWorks";
 import SpecialDeals from "@/components/home/SpecialDeals";
-import BrandPromise from "@/components/home/BrandPromise";
+// import Br from "@/components/home/Process";
+import Process from "@/components/home/Process";
 import Testimonials from "@/components/home/Testimonials";
 // import InstagramFeed from "@/components/home/InstagramFeed";
 import Newsletter from "@/components/home/Newsletter";
@@ -17,7 +18,8 @@ const Index = () => (
     <FeaturedCarts />
     <PopularEvents />
     <HowItWorks />
-    <BrandPromise />
+    <Process/>
+
     <SpecialDeals/>
     <Testimonials />
     {/* <InstagramFeed /> */}

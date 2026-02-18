@@ -144,7 +144,7 @@ const SpecialDeals: React.FC = () => {
 
               {/* Content */}
               <div className="absolute inset-0 p-6 flex flex-col justify-end z-10">
-                <span className="text-[#88a382] text-[9px] font-bold uppercase tracking-[0.2em] block mb-1">
+                <span className="text-[#88a382] text-sm font-bold uppercase tracking-[0.2em] block mb-1">
                   {offer.category}
                 </span>
                 <h3 className="text-white font-serif text-lg md:text-xl mb-1 leading-tight">
