@@ -1,8 +1,36 @@
 import { Link } from "react-router-dom";
+import { FaWhatsapp } from "react-icons/fa";
+
 import { Instagram, Facebook, Phone, Mail, MapPin } from "lucide-react";
 
 const Footer = () => (
+
+  
   <footer className="sage-gradient text-primary-foreground">
+
+    
+ <div className="fixed bottom-6 right-6 z-50">
+  {/* Smaller Ping Ring */}
+  <span className="absolute inset-0 flex items-center justify-center">
+    <span className="h-12 w-12 rounded-full bg-[#25D366] opacity-40 animate-ping"></span>
+  </span>
+
+  {/* Main Button */}
+  <a
+    href="https://wa.me/919999999999"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="relative inline-flex items-center justify-center 
+               bg-[#25D366] text-white 
+               p-3 rounded-full 
+               shadow-md
+               hover:scale-110 
+               transition-transform duration-300"
+  >
+    <FaWhatsapp className="h-9 w-9" />
+  </a>
+</div>
+
     <div className="container mx-auto section-padding">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
