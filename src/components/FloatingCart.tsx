@@ -11,8 +11,8 @@ export default function FloatingCart() {
       animate={{ y: 0, opacity: 1, rotate: 0 }}
       transition={{
         type: "spring",
-        stiffness: 160,
-        damping: 12,
+        stiffness: 70,
+        damping: 10,
       }}
       onClick={() => navigate("/cart")}
       className="
