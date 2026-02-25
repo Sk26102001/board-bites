@@ -83,6 +83,8 @@ import Services from "./pages/Services";
 import Gallery from "./pages/Gallery";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
+import AddCart from "./pages/AddCart";
+import FloatingCart from "./components/FloatingCart";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -101,6 +103,7 @@ const AnimatedRoutes = () => {
         <Route path="/gallery" element={<PageTransition><Gallery /></PageTransition>} />
         <Route path="/faq" element={<PageTransition><FAQ /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+        <Route path="/cart" element={<PageTransition><AddCart /></PageTransition>} />
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
     </AnimatePresence>
@@ -129,6 +132,10 @@ function App(): JSX.Element {
         <Sonner />
         <BrowserRouter>
           <FloatingNav />
+
+  {/* ✅ ADD CART HERE */}
+  <FloatingCart />
+          
           <AnimatedRoutes />
           <Footer />
         </BrowserRouter>

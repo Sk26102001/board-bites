@@ -9,7 +9,7 @@ const Footer = () => (
   <footer className="sage-gradient text-primary-foreground">
 
     
- <div className="fixed bottom-6 right-6 z-50">
+ <div className="fixed bottom-6 left-6 z-50">
   {/* Smaller Ping Ring */}
   <span className="absolute inset-0 flex items-center justify-center">
     <span className="h-12 w-12 rounded-full bg-[#25D366] opacity-40 animate-ping"></span>
@@ -24,7 +24,7 @@ const Footer = () => (
                bg-[#25D366] text-white 
                p-3 rounded-full 
                shadow-md
-               hover:scale-110 
+               hover:scale-110  
                transition-transform duration-300"
   >
     <FaWhatsapp className="h-9 w-9" />

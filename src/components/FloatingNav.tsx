@@ -8,6 +8,7 @@ const navItems = [
   { icon: UtensilsCrossed, label: "Menu", href: "/menu" },
   // { icon: Sparkles, label: "How It Works", href: "#how-it-works" },
   { icon: CalendarDays, label: "Book Now", href: "/booking" },
+  // { icon: Phone, label: "AddCart", href: "/cart" },
     { icon:CreditCard, label: "Payment", href: "#gallery" },
       { icon:UserRoundCog, label: "Service", href: "/services" },
   { icon: ImageIcon, label: "Gallery", href: "/gallery" },
