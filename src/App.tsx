@@ -79,13 +79,16 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import MenuPage from "./pages/MenuPage";
 import Booking from "./pages/Booking";
-import Services from "./pages/Services";
+import AddOn from "./pages/AddOn";
 import Gallery from "./pages/Gallery";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import AddCart from "./pages/AddCart";
 import FloatingCart from "./components/FloatingCart";
 import NotFound from "./pages/NotFound";
+import Login from "./pages/Login";
+
+
 
 const queryClient = new QueryClient();
 
@@ -99,11 +102,13 @@ const AnimatedRoutes = () => {
         <Route path="/about" element={<PageTransition><About /></PageTransition>} />
         <Route path="/menu" element={<PageTransition><MenuPage /></PageTransition>} />
         <Route path="/booking" element={<PageTransition><Booking /></PageTransition>} />
-        <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
+        <Route path="/add-on" element={<PageTransition><AddOn /></PageTransition>} />
         <Route path="/gallery" element={<PageTransition><Gallery /></PageTransition>} />
         <Route path="/faq" element={<PageTransition><FAQ /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
         <Route path="/cart" element={<PageTransition><AddCart /></PageTransition>} />
+                <Route path="/login" element={<PageTransition><Login /></PageTransition>} />
+
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
     </AnimatePresence>

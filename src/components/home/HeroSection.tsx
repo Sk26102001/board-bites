@@ -14,13 +14,16 @@ const HeroSection = () => {
 
   return (
     <section ref={ref} className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
-      <motion.img
-        src={heroBg}
-        alt="Gourmet charcuterie board"
-        style={{ y: imgY }}
-        className="absolute inset-0 w-full h-full object-cover scale-110"
-        
-      />
+   <motion.video
+  autoPlay
+  loop
+  muted
+  playsInline
+  style={{ y: imgY }}
+  className="absolute inset-0 w-full h-full object-cover scale-110"
+>
+  <source src="./video2.mp4" type="video/mp4" />
+</motion.video>
 
 {/* <div>
   <img src={logo} alt="Bite Logo" className="absolute top-6 left-10 w-60 h-28 z-20 brightness-[3]" />

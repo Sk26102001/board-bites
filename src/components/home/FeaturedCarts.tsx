@@ -8,49 +8,49 @@ import { Link } from "react-router-dom";
 const menuItems = [
   {
     title: "Artisan Breakfast",
-    price: "2,000",
+    
     image: "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?q=80&w=800&auto=format&fit=crop",
     tag: "Morning Choice"
   },
   {
     title: "Gourmet Sandwiches",
-    price: "2,000",
+   
     image: "https://images.unsplash.com/photo-1521390188846-e2a3a97453a0?q=80&w=800&auto=format&fit=crop",
     tag: "Deli Special"
   },
   {
     title: "Stone Oven Pizza",
-    price: "2,200",
+   
     image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=800&auto=format&fit=crop",
     tag: "Hand-Stretched"
   },
   {
     title: "Charcuterie & Cheese",
-    price: "1,800",
+   
     image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=800&auto=format&fit=crop",
     tag: "Aged Selection"
   },
   {
     title: "French Patisserie",
-    price: "1,500",
+ 
     image: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=800&auto=format&fit=crop",
     tag: "Bakery Fresh"
   },
   {
     title: "Garden Harvest",
-    price: "1,600",
+  
     image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop",
     tag: "Organic Green"
   },
   {
     title: "Indulgent Sweets",
-    price: "1,800",
+  
     image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=800&auto=format&fit=crop",
     tag: "Sweet Ending"
   },
   {
     title: "Signature Drinks",
-    price: "1,200",
+
     image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=800&auto=format&fit=crop",
     tag: "Cold-Pressed"
   }
@@ -110,7 +110,7 @@ const FoodCartGrid = () => {
                 {/* AED PRICE TAG */}
                 <div className="absolute bottom-4 right-4 bg-[#2d3a2a]/90 backdrop-blur-md text-white px-4 py-1.5 rounded-xl">
                   <p className="font-bold text-sm">
-                    {item.price} <span className="text-[10px] opacity-70">AED</span>
+                    {/* {item.price} <span className="text-[10px] opacity-70">AED</span> */}
                   </p>
                 </div>
               </div>
@@ -122,7 +122,7 @@ const FoodCartGrid = () => {
                 </h3>
                 
                 {/* ORDER NOW BUTTON */}
-             <Link to="/menu">
+             <Link to="/booking">
   <button className="w-full bg-[#88a382] hover:bg-emerald-700 text-white py-4 rounded-2xl font-bold uppercase text-[10px] tracking-[0.3em] transition-all duration-500 flex items-center justify-center gap-2 shadow-lg">
     <ShoppingBag size={14} />
     Order Now

@@ -22,9 +22,9 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="lg:col-span-2 space-y-6">
             {[
-              { icon: Phone, label: "+1 (555) 123-4567" },
-              { icon: Mail, label: "hello@boardandbites.com" },
-              { icon: MapPin, label: "New York, NY" },
+              { icon: Phone, label: "+971 547122228" },
+              { icon: Mail, label: "Boardandbites.ae@outlook.com" },
+              { icon: MapPin, label: "Nad Al Hammar, Dubai, UAE" },
             ].map((c) => (
               <div key={c.label} className="flex items-center gap-4 bg-background border border-border rounded-xl p-5">
                 <div className="w-12 h-12 rounded-full sage-gradient flex items-center justify-center flex-shrink-0">
@@ -34,7 +34,7 @@ const Contact = () => {
               </div>
             ))}
             <a
-              href="https://wa.me/15551234567"
+              href="https://wa.me/971547122228"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 sage-gradient text-primary-foreground rounded-xl p-5 font-body font-semibold hover:opacity-90 transition-opacity"

@@ -3027,17 +3027,29 @@
 
 
 // BookingPage.tsx
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";  // Add this for navigation
 import { motion } from "framer-motion";
+import LocationPicker from "@/components/LocationPicker";
 import { CalendarCheck, ChevronDown } from "lucide-react";
 
 // ────────────────────────────────────────────────
 // Cart data with prices (you can change these values)
 // ────────────────────────────────────────────────
+
+// Cart images mapping
+const cartImages: Record<string, string> = {
+  "Breakfast Cart": "https://tse4.mm.bing.net/th/id/OIP.a_GapCRoQZjn2ma4LMP0gwHaFP?rs=1&pid=ImgDetMain&o=7&rm=3",
+  "Sandwich Cart": "https://th.bing.com/th/id/OIP.YxftEZBUS4NAjg-8fKqKmAHaE8?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+  "Pizza Cart": "https://static.vecteezy.com/system/resources/previews/047/734/497/large_2x/enjoy-the-delicious-flavors-of-a-vegetarian-pizza-with-fresh-tomatoes-onions-and-green-peas-on-a-crispy-crust-from-a-nearby-pizzeria-add-basil-herbs-parsley-and-spices-for-an-extra-kick-photo.jpg",
+  "Cheese Cart": "https://www.bing.com/th/id/OIP.GgM1yOiYSC6kRpNZhLxV2gHaE8?w=265&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2",
+  "Sweets Cart": "https://th.bing.com/th/id/OIP.kg717IzDxYVzgpySUW-VYgHaEo?w=289&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7https://images.alphacoders.com/890/890240.jpg",
+  "Drinks Cart": "https://www.spoton.com/blog/content/images/2023/08/Mocktail--zero-proof-cocktails--and-different-non-alcoholic-drinks.jpeg",
+};
 const cartOptions = [
   {
     name: "Breakfast Cart",
+    img: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=400",
     basePrice: 0,
     guestPackages: [
       { label: "1-20 Guests", price: 2000 },
@@ -3191,16 +3203,16 @@ const cartOptions = [
           { name: "Jam" },
         ],
       },
-      {
-        id: "complementary",
-        title: "Complementary",
-        maxSelect: 2,
-        items: [
-          { name: "Ciabatta Bread", price: 0 },
-          { name: "Paper Napkins", price: 0 },
-          { name: "Disposable Cutlery", price: 0 },
-        ],
-      },
+      // {
+      //   id: "complementary",
+      //   title: "Complementary",
+      //   maxSelect: 2,
+      //   items: [
+      //     { name: "Ciabatta Bread", price: 0 },
+      //     { name: "Paper Napkins", price: 0 },
+      //     { name: "Disposable Cutlery", price: 0 },
+      //   ],
+      // },
     ],
   },
 
@@ -3267,18 +3279,18 @@ const cartOptions = [
           { name: "Jam" },
         ],
       },
-      {
-        id: "complementary",
-        title: "Complementary",
-        maxSelect: 2,
-        items: [
-          { name: "Pizza Dough", price: 0 },
-          { name: "Signature Marinara", price: 0 },
-          { name: "Chili Flakes", price: 0 },
-          { name: "Oregano Packets", price: 0 },
-          { name: "Disposable Plates", price: 0 },
-        ],
-      },
+      // {
+      //   id: "complementary",
+      //   title: "Complementary",
+      //   maxSelect: 2,
+      //   items: [
+      //     { name: "Pizza Dough", price: 0 },
+      //     { name: "Signature Marinara", price: 0 },
+      //     { name: "Chili Flakes", price: 0 },
+      //     { name: "Oregano Packets", price: 0 },
+      //     { name: "Disposable Plates", price: 0 },
+      //   ],
+      // },
     ],
   },
 
@@ -3408,17 +3420,17 @@ const cartOptions = [
           { name: "Jam" },
         ],
       },
-      {
-        id: "complementary",
-        title: "Complementary",
-        maxSelect: 2,
-        items: [
-          { name: "Disposable Spoons", price: 0 },
-          { name: "Napkins", price: 0 },
-          { name: "Small Serving Cups", price: 0 },
-          { name: "Sprinkles (extra)", price: 0 },
-        ],
-      },
+      // {
+      //   id: "complementary",
+      //   title: "Complementary",
+      //   maxSelect: 2,
+      //   items: [
+      //     { name: "Disposable Spoons", price: 0 },
+      //     { name: "Napkins", price: 0 },
+      //     { name: "Small Serving Cups", price: 0 },
+      //     { name: "Sprinkles (extra)", price: 0 },
+      //   ],
+      // },
     ],
   },
 
@@ -3472,17 +3484,17 @@ const cartOptions = [
           { name: "Jam" },
         ],
       },
-      {
-        id: "complementary",
-        title: "Complementary",
-        maxSelect: 2,
-        items: [
-          { name: "All options are vegan", price: 0 },
-          { name: "Small Candy Bags", price: 0 },
-          { name: "Disposable Gloves", price: 0 },
-          { name: "Napkins", price: 0 },
-        ],
-      },
+      // {
+      //   id: "complementary",
+      //   title: "Complementary",
+      //   maxSelect: 2,
+      //   items: [
+      //     { name: "All options are vegan", price: 0 },
+      //     { name: "Small Candy Bags", price: 0 },
+      //     { name: "Disposable Gloves", price: 0 },
+      //     { name: "Napkins", price: 0 },
+      //   ],
+      // },
     ],
   },
 
@@ -3551,300 +3563,62 @@ const cartOptions = [
           { name: "Jam" },
         ],
       },
-      {
-        id: "complementary",
-        title: "Complementary",
-        maxSelect: 2,
+              {
+        id: "hot chocolate",
+        title: "Artisanal Hot Chocolate & Karak (Choose 1)",
+        maxSelect: 1,
         items: [
-          { name: "Cups / Glasses", price: 0 },
-          { name: "Straws", price: 0 },
-          { name: "Mint & Fruit Garnishes", price: 0 },
-          { name: "Ice Packs", price: 0 },
-          { name: "Napkins", price: 0 },
+          { name: "Strawberry" },
+          { name: "Grapes" },
+          { name: "Makdous" },
+          { name: "Dates" },
+          { name: "Honey" },
+          { name: "Jam" },
         ],
       },
+    
+              {
+        id: "botanical juice",
+        title: "Cold-Pressed Botanical Juices (Choose 2)",
+        maxSelect: 2,
+        items: [
+          { name: "Strawberry" },
+          { name: "Grapes" },
+          { name: "Makdous" },
+          { name: "Dates" },
+          { name: "Honey" },
+          { name: "Jam" },
+        ],
+      },
+                    {
+        id: "champagne",
+        title: "Non-Alcoholic Champagne (Choose 2)",
+        maxSelect: 2,
+        items: [
+          { name: "Strawberry" },
+          { name: "Grapes" },
+          { name: "Makdous" },
+          { name: "Dates" },
+          { name: "Honey" },
+          { name: "Jam" },
+        ],
+      },
+      // {
+      //   id: "complementary",
+      //   title: "Complementary",
+      //   maxSelect: 2,
+      //   items: [
+      //     { name: "Cups / Glasses", price: 0 },
+      //     { name: "Straws", price: 0 },
+      //     { name: "Mint & Fruit Garnishes", price: 0 },
+      //     { name: "Ice Packs", price: 0 },
+      //     { name: "Napkins", price: 0 },
+      //   ],
+      // },
     ],
   },
 ];
-// const cartOptions = [
-//   {
-//     name: "Breakfast Cart",
-//     basePrice: 0,
-//     guestPackages: [
-//       { label: "1-20 Guests", price: 2000 },
-//       { label: "20-30 Guests", price: 2850 },
-//       { label: "30-50 Guests", price: 4150 },
-//     ],
-//     stationPrice: 300,
-//     sections: [
-//       {
-//         id: "main",
-//         title: "Main Items",
-//         maxSelect: 3,
-//         items: [
-//           { name: "Keema" },
-//           { name: "Sausage" },
-//           { name: "Foul" },
-//           { name: "Balaleet" },
-//           { name: "Scrambled Egg" },
-//           { name: "Haloumi" },
-//         ]
-//       },
-//       {
-//         id: "other",
-//         title: "Other Items",
-//         maxSelect: 2,
-//         items: [
-//           { name: "Strawberry" },
-//           { name: "Grapes" },
-//           { name: "Makdous" },
-//           { name: "Dates" },
-//           { name: "Honey" },
-//           { name: "Jam" },
-//         ]
-//       },
-//       {
-//         id: "new",
-//         title: "New Items",
-//         maxSelect: 2,
-//         items: [
-//           { name: "Strawberry" },
-//           { name: "Grapes" },
-//           { name: "Makdous" },
-//           { name: "Dates" },
-//           { name: "Honey" },
-//           { name: "Jam" },
-//         ]
-//       },
-//       {
-//         id: "premium",
-//         title: "Premium Items",
-//         maxSelect: 2,
-//         items: [
-//           { name: "Strawberry" },
-//           { name: "Grapes" },
-//           { name: "Makdous" },
-//           { name: "Dates" },
-//           { name: "Honey" },
-//           { name: "Jam" },
-//         ]
-//       },
-//       {
-//         id: "complementary",
-//         title: "Complementary",
-//         maxSelect: 2,
-//         items: [
-//           { name: "Black Olive", price: 0 },
-//           { name: "Green Olive", price: 0 },
-//           { name: "Cherry Tomato", price: 0 },
-//           { name: "Extra Napkins", price: 0 },
-//         ]
-//       }
-//     ]
-//   },
-//   // Sandwich Cart
-//   {
-//     name: "Sandwich Cart",
-//     basePrice: 0,
-//     guestPackages: [
-//       { label: "1-20 Guests", price: 2000 },
-//       { label: "20-30 Guests", price: 2850 },
-//       { label: "30-50 Guests", price: 4150 },
-//     ],
-//     stationPrice: 300,
-//     selectable: [
-//       { name: "Tuna", price: 45 },
-//       { name: "Salami", price: 55 },
-//       { name: "Spicy Salami", price: 58 },
-//       { name: "Bresaola", price: 65 },
-//       { name: "Roasted Chicken Breast", price: 48 },
-//       { name: "Turkey", price: 50 },
-//       { name: "Pepperoni", price: 52 },
-//       { name: "Rocca", price: 12 },
-//       { name: "Tomato", price: 10 },
-//       { name: "Pickles", price: 8 },
-//       { name: "Cucumber", price: 8 },
-//       { name: "Jalapeno", price: 10 },
-//       { name: "Iceberg Lettuce", price: 10 },
-//       { name: "Sun-Dried Tomato", price: 18 },
-//       { name: "Pesto", price: 22 },
-//       { name: "Mustard", price: 8 },
-//       { name: "Honey Mustard", price: 12 },
-//       { name: "Chipotle", price: 15 },
-//       { name: "BBQ", price: 12 },
-//       { name: "Guacamole", price: 25 },
-//       { name: "Thousand Island", price: 15 },
-//     ],
-//     complementary: [
-//       { name: "Ciabatta Bread", price: 0 },
-//       { name: "Paper Napkins", price: 0 },
-//       { name: "Disposable Cutlery", price: 0 },
-//       // { name: "Extra Sauce Portions", price: 0 },
-//     ]
-//   },
-//   // Pizza Cart
-//   {
-//     name: "Pizza Cart",
-//     basePrice: 0,
-//     guestPackages: [
-//       { label: "1-20 Guests", price: 2200 },
-//       { label: "20-30 Guests", price: 3050 },
-//       { label: "30-50 Guests", price: 4350 },
-//     ],
-//     stationPrice: 300,
-//     selectable: [
-//       { name: "Pepperoni", price: 35 },
-//       { name: "Salami", price: 38 },
-//       { name: "Chicken Cubes", price: 45 },
-//       { name: "Tuna", price: 42 },
-//       { name: "Ground Beef", price: 40 },
-//       { name: "Mozzarella", price: 28 },
-//       { name: "Cheddar Blend", price: 30 },
-//       { name: "Parmesan", price: 35 },
-//       { name: "Tomato", price: 10 },
-//       { name: "Olives", price: 12 },
-//       { name: "Mushroom", price: 15 },
-//       { name: "Bell Pepper", price: 12 },
-//       { name: "Pineapple", price: 18 },
-//       { name: "Jalapeño", price: 10 },
-//     ],
-//     complementary: [
-//       { name: "Pizza Dough", price: 0 },
-//       { name: "Signature Marinara", price: 0 },
-//       { name: "Chili Flakes", price: 0 },
-//       { name: "Oregano Packets", price: 0 },
-//       { name: "Disposable Plates", price: 0 },
-//     ]
-//   },
-//   // Cheese Cart
-//   {
-//     name: "Cheese Cart",
-//     basePrice: 0,
-//     guestPackages: [
-//       { label: "1-20 Guests", price: 1800 },
-//       { label: "20-30 Guests", price: 2650 },
-//       { label: "30-50 Guests", price: 3950 },
-//     ],
-//     stationPrice: 300,
-//     selectable: [
-//       { name: "Cheddar", price: 32 },
-//       { name: "Blue Cheese", price: 55 },
-//       { name: "Brie", price: 65 },
-//       { name: "Parmesan", price: 40 },
-//       { name: "Feta", price: 38 },
-//       { name: "Labneh balls with Zaatar", price: 35 },
-//       { name: "Salami", price: 50 },
-//       { name: "Prosciutto", price: 70 },
-//       { name: "Bresaola", price: 75 },
-//       { name: "Grapes", price: 22 },
-//       { name: "Figs", price: 35 },
-//       { name: "Walnuts", price: 28 },
-//       { name: "Almonds", price: 30 },
-//       { name: "Honey", price: 35 },
-//     ],
-//     complementary: [
-//       { name: "Baguette Bread", price: 0 },
-//       { name: "Crackers", price: 0 },
-//       { name: "Extra Toothpicks", price: 0 },
-//       { name: "Cheese Knives (disposable)", price: 0 },
-//     ]
-//   },
-//   // Sweets Cart
-//   {
-//     name: "Sweets Cart",
-//     basePrice: 0,
-//     guestPackages: [
-//       { label: "1-20 Guests", price: 500 },
-//       { label: "20-30 Guests", price: 750 },
-//       { label: "30-50 Guests", price: 1000 },
-//     ],
-//     stationPrice: 300,
-//     selectable: [
-//       { name: "Brownie", price: 25 },
-//       { name: "Croissant", price: 18 },
-//       { name: "Strawberry", price: 25 },
-//       { name: "Banana", price: 15 },
-//       { name: "Blueberry", price: 28 },
-//       { name: "Raspberry", price: 30 },
-//       { name: "KitKat", price: 20 },
-//       { name: "M&M's", price: 22 },
-//       { name: "Marshmallows", price: 18 },
-//       { name: "Gummy Bears", price: 20 },
-//       { name: "Caramel Sauce", price: 25 },
-//       { name: "Chocolate Hazelnut Sauce", price: 28 },
-//       { name: "White Chocolate Sauce", price: 28 },
-//     ],
-//     complementary: [
-//       { name: "Disposable Spoons", price: 0 },
-//       { name: "Napkins", price: 0 },
-//       { name: "Small Serving Cups", price: 0 },
-//       { name: "Sprinkles (extra)", price: 0 },
-//     ]
-//   },
-//   // Candy Cart
-//   {
-//     name: "Candy Cart",
-//     basePrice: 0,
-//     guestPackages: [
-//       { label: "1-20 Guests", price: 500 },
-//       { label: "20-30 Guests", price: 750 },
-//       { label: "30-50 Guests", price: 1000 },
-//     ],
-//     stationPrice: 300,
-//     selectable: [
-//       { name: "Cola Pacifiers" },
-//       { name: "Tutti Frutti Rings", price: 18 },
-//       { name: "Rainbow Sea", price: 20 },
-//       { name: "Strawberry Lips", price: 16 },
-//       { name: "Apple", price: 12 },
-//       { name: "Grapes", price: 22 },
-//       { name: "Mangoes", price: 25 },
-//       { name: "Kiwi", price: 22 },
-//       { name: "Popcorn", price: 15 },
-//       { name: "Pretzels", price: 12 },
-//       { name: "Marshmallow", price: 18 },
-//       { name: "Gummy Bears", price: 20 },
-//     ],
-//     complementary: [
-//       { name: "All options are vegan", price: 0 },
-//       { name: "Small Candy Bags", price: 0 },
-//       { name: "Disposable Gloves", price: 0 },
-//       { name: "Napkins", price: 0 },
-//     ]
-//   },
-//   // Drinks Cart
-//   {
-//     name: "Drinks Cart",
-//     basePrice: 0,
-//     guestPackages: [
-//       { label: "1-20 Guests", price: 500 },
-//       { label: "20-30 Guests", price: 750 },
-//       { label: "30-50 Guests", price: 1000 },
-//     ],
-//     stationPrice: 300,
-//     selectable: [
-//       { name: "Pink Champagne" },
-//       { name: "Iconic Strawberry Lemonade" },
-//       { name: "Pina Colada" },
-//       { name: "Blue Hawaiian" },
-//       { name: "Strawberry Slushie" },
-//       { name: "Frozen Lemonade" },
-//       { name: "Vimto" },
-//       { name: "Blue Lagoon" },
-//       { name: "Fresh Orange Juice" },
-//       { name: "Lemon Mint" },
-//     ],
-//     complementary: [
-//       { name: "Cups / Glasses", price: 0 },
-//       { name: "Straws", price: 0 },
-//       { name: "Mint & Fruit Garnishes", price: 0 },
-//       { name: "Ice Packs", price: 0 },
-//       { name: "Napkins", price: 0 },
-//     ]
-//   },
-// ];
 
-//
 
 
 // Image mapping – every item has an image
@@ -3963,12 +3737,101 @@ export default function BookingPage() {
     notes: "",
     selectedItems: {} as Record<string, { name: string; price?: number }[]>,
   });
-
+   const REFUNDABLE_DEPOSIT = 300;
   const [submitted, setSubmitted] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [editingId, setEditingId] = useState<string | null>(null);  // Track if editing
+const [showMap, setShowMap] = useState(false);
+const [coordinates, setCoordinates] = useState<{ lat: number; lng: number } | null>(null);
+
 
   const selectedCart = cartOptions.find((c) => c.name === form.cart);
+
+
+  const [isCartOpen, setIsCartOpen] = useState(false);
+const dropdownRef = useRef<HTMLDivElement>(null);
+
+const handleLocation = async (lat: number, lng: number) => {
+  setCoordinates({ lat, lng });
+
+  try {
+    const res = await fetch(
+      `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=18&addressdetails=1`
+    );
+
+    const data = await res.json();
+
+    const address =
+      data?.display_name || `Lat: ${lat.toFixed(6)}, Lng: ${lng.toFixed(6)}`;
+
+    setForm(prev => ({
+      ...prev,
+      location: address
+    }));
+
+    setShowMap(false);
+
+  } catch {
+    setForm(prev => ({
+      ...prev,
+      location: `Lat: ${lat.toFixed(6)}, Lng: ${lng.toFixed(6)}`
+    }));
+
+    setShowMap(false);
+  }
+};
+const handleUseCurrentLocation = () => {
+  if (!navigator.geolocation) {
+    alert("Geolocation is not supported by your browser.");
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      const { latitude, longitude } = position.coords;
+
+      fetch(
+        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`
+      )
+        .then(res => res.json())
+        .then(data => {
+          const address = data?.display_name || `Lat: ${latitude.toFixed(6)}, Lng: ${longitude.toFixed(6)}`;
+          setForm(prev => ({ ...prev, location: address }));
+        })
+        .catch(() => {
+          setForm(prev => ({
+            ...prev,
+            location: `Lat: ${latitude.toFixed(6)}, Lng: ${longitude.toFixed(6)}`,
+          }));
+        });
+    },
+    (err) => {
+      alert(
+        err.code === 1
+          ? "Location access denied. Please allow it in browser settings."
+          : "Could not get location. Try again."
+      );
+    },
+    { enableHighAccuracy: false,
+      timeout: 5000,
+      maximumAge: 40000  }
+  );
+};
+
+
+// Close dropdown when clicking outside
+useEffect(() => {
+  const handleClickOutside = (event: MouseEvent) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      setIsCartOpen(false);
+    }
+  };
+
+  document.addEventListener("mousedown", handleClickOutside);
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+  };
+}, []);
 
   // Load editing data if present
   useEffect(() => {
@@ -4025,7 +3888,7 @@ export default function BookingPage() {
       ? selectedCart.stationPrice
       : 0;
 
-    return basePackagePrice + stationPrice;
+    return basePackagePrice + stationPrice + REFUNDABLE_DEPOSIT;
   };
 
   const handleChange = (
@@ -4159,35 +4022,78 @@ export default function BookingPage() {
           className="bg-white rounded-3xl shadow-2xl border border-gray-100/80 p-6 md:p-10 lg:p-12 space-y-10 backdrop-blur-sm"
         >
           {/* 1. Select Cart */}
-          <div className="space-y-5">
-            <h2 className="text-3xl font-bold text-gray-800 flex items-center gap-3">
-              <span className="text-primary">1.</span> Choose Your Cart
-            </h2>
-            <div className="relative">
-              <select
-                name="cart"
-                value={form.cart}
-                onChange={(e) => {
-                  const { value } = e.target;
-                  setForm(prev => ({
-                    ...prev,
-                    cart: value,
-                    selectedItems: {}, // reset all selected items
-                  }));
-                }}
-                required
-                className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl text-lg appearance-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition"
-              >
-                <option value="">Select cart type...</option>
-                {cartOptions.map((cart) => (
-                  <option key={cart.name} value={cart.name}>
-                    {cart.name}
-                  </option>
-                ))}
-              </select>
-              <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none" />
-            </div>
+
+<div className="space-y-5">
+  <h2 className="text-3xl font-bold text-gray-800 flex items-center gap-3">
+    <span className="text-primary">1.</span> Choose Your Cart
+  </h2>
+
+  <div className="relative" ref={dropdownRef}>
+    {/* Trigger / Selected value display */}
+    <button
+      type="button"
+      onClick={() => setIsCartOpen(!isCartOpen)}
+      className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl text-lg flex items-center justify-between focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition"
+    >
+      {form.cart ? (
+        <div className="flex items-center gap-3">
+          <div className="w-20 h-20 rounded-md overflow-hidden border border-gray-200 flex-shrink-0">
+            <img
+              src={cartImages[form.cart] || "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=80&auto=format&fit=crop&q=80"}
+              alt={form.cart}
+              className="w-full h-full "
+              onError={(e) => {
+                e.currentTarget.src = "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=80&auto=format&fit=crop&q=80";
+              }}
+            />
           </div>
+          <span className="font-medium text-gray-800">{form.cart}</span>
+        </div>
+      ) : (
+        <span className="text-gray-500">Select cart type...</span>
+      )}
+
+      <ChevronDown
+        className={`w-5 h-5 text-gray-500 transition-transform ${isCartOpen ? "rotate-180" : ""}`}
+      />
+    </button>
+
+    {/* Dropdown menu – shown when open */}
+    {isCartOpen && (
+      <div className="absolute z-50 mt-2 w-full bg-white border border-gray-200 rounded-xl shadow-2xl max-h-80 overflow-y-auto">
+        {cartOptions.map((cart) => (
+          <button
+            key={cart.name}
+            type="button"
+            onClick={() => {
+              setForm((prev) => ({
+                ...prev,
+                cart: cart.name,
+                selectedItems: {}, // reset selections
+              }));
+              setIsCartOpen(false);
+            }}
+            className={`w-full flex items-center gap-4 px-5 py-3 hover:bg-gray-50 transition text-left ${
+              form.cart === cart.name ? "bg-emerald-50" : ""
+            }`}
+          >
+            <div className="w-12 h-12 rounded-lg overflow-hidden border border-gray-200 flex-shrink-0">
+              <img
+                src={cart.img || cartImages[cart.name] || "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=80&auto=format&fit=crop&q=80"}
+                alt={cart.name}
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.currentTarget.src = "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=80&auto=format&fit=crop&q=80";
+                }}
+              />
+            </div>
+            <span className="font-medium text-gray-800">{cart.name}</span>
+          </button>
+        ))}
+      </div>
+    )}
+  </div>
+</div>
 
           {selectedCart?.sections?.map((section) => {
             const selectedCount = form.selectedItems[section.id]?.length || 0;
@@ -4320,7 +4226,36 @@ export default function BookingPage() {
               </div>
 
               {/* City Selection */}
-              <div>
+
+              {/* City Selection */}
+<div>
+  <label className="block text-gray-700 font-medium mb-2">
+    Select City / Emirate
+  </label>
+  <select
+    name="city"
+    value={form.city}
+    onChange={handleChange}
+    required
+    className="w-full px-5 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500"
+  >
+    <option value="">Select City...</option>
+    <option value="Abu Dhabi">Abu Dhabi</option>
+    <option value="Dubai">Dubai</option>
+    <option value="Sharjah">Sharjah</option>
+    <option value="Ajman">Ajman</option>
+    <option value="Ras Al Khaimah">Ras Al Khaimah</option>
+    <option value="Fujairah">Fujairah</option>
+    <option value="Umm Al Quwain">Umm Al Quwain</option>
+     <option value="Al Ain">Al Ain</option>
+  <option value="Khor Fakkan">Khor Fakkan</option>
+  <option value="Dibba Al-Fujairah">Dibba Al-Fujairah</option>
+  <option value="Kalba">Kalba</option>
+    {/* Optional: include Al Ain if your service operates there independently */}
+    {/* <option value="Al Ain">Al Ain</option> */}
+  </select>
+</div>
+              {/* <div>
                 <label className="block text-gray-700 font-medium mb-2">
                   Select City
                 </label>
@@ -4335,9 +4270,9 @@ export default function BookingPage() {
                   <option value="Dubai">Dubai</option>
                   <option value="Abu Dhabi">Abu Dhabi</option>
                 </select>
-              </div>
+              </div> */}
 
-              {/* Time Slot */}
+              {/* Time Slot
               {form.city && (
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
@@ -4358,14 +4293,41 @@ export default function BookingPage() {
                     ))}
                   </select>
                 </div>
-              )}
+              )} */}
+              {/* Time Slot */}
+{form.city && (
+  <div>
+    <label className="block text-gray-700 font-medium mb-2">
+      Select Time Slot
+    </label>
+    <select
+      name="timeSlot"
+      value={form.timeSlot}
+      onChange={handleChange}
+      required
+      className="w-full px-5 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500"
+    >
+      <option value="">Select Time...</option>
+      {generateTimeSlots().map((slot) => (
+        <option key={slot} value={slot}>
+          {slot}
+        </option>
+      ))}
+    </select>
+
+<p className="mt-3 text-sm text-gray-600">
+  <span className="font-semibold text-emerald-700">Note:</span> 3 hours included after preparation. 
+  <span className="font-semibold text-amber-700">Additional time: AED 150 per hour</span>
+</p>
+  </div>
+)}
             </div>
 
             <div className="space-y-5">
               <h2 className="text-3xl font-bold text-gray-800 flex items-center gap-3 ">
                 <span className="text-primary">4.</span> Where & Who
               </h2>
-              <div>
+              {/* <div>
                 <label className="block text-gray-700 font-medium mb-2">Event Location</label>
                 <input
                   type="text"
@@ -4376,7 +4338,115 @@ export default function BookingPage() {
                   onChange={handleChange}
                   className="w-full px-5 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
                 />
-              </div>
+              </div> */}
+<div className="space-y-4">
+  <label className="block text-gray-700 font-medium mb-2">
+    Event Location <span className="text-red-500 text-sm">*</span>
+  </label>
+
+  {/* Manual input – always editable */}
+  <input
+    type="text"
+    name="location"
+    placeholder="Enter full address manually or select on map..."
+    value={form.location}
+    onChange={handleChange}
+    required
+    className="w-full px-5 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+  />
+
+  {/* Preview when location is selected (map or geolocation) */}
+  {form.location && form.location.trim() !== '' && (
+    <p className="text-sm text-emerald-700 bg-emerald-50 p-3 rounded-lg border border-emerald-100 break-words">
+      Selected: {form.location}
+    </p>
+  )}
+
+  {/* <p className="text-sm text-gray-500">
+    Type manually, pick on interactive map, or use your current location.
+  </p> */}
+
+  {/* Buttons */}
+  <div className="flex flex-wrap gap-3">
+    <button
+      type="button"
+      onClick={() => setShowMap(true)}
+      className="flex-1 sm:flex-none px-5 py-3 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 rounded-lg transition font-medium flex items-center justify-center gap-2"
+    >
+      <span>📍 Pick on Map</span>
+    </button>
+
+    <button
+      type="button"
+      onClick={handleUseCurrentLocation}
+      className="flex-1 sm:flex-none px-5 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition font-medium flex items-center justify-center gap-2"
+    >
+      <span>Use My Location</span>
+    </button>
+  </div>
+
+  {/* Leaflet Map Modal */}
+  {showMap && (
+    <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
+      <div className="bg-white rounded-2xl w-full max-w-5xl max-h-[92vh] overflow-hidden shadow-2xl flex flex-col">
+        {/* Header */}
+        <div className="flex items-center justify-between p-5 border-b bg-gray-50">
+          <h3 className="text-xl font-bold text-gray-900">Select Event Location</h3>
+          <button
+            onClick={() => setShowMap(false)}
+            className="text-gray-600 hover:text-gray-900 text-3xl leading-none px-3 py-1"
+          >
+            ×
+          </button>
+        </div>
+
+        {/* Interactive Leaflet Map */}
+        <div className="flex-1 min-h-[450px]">
+<LocationPicker
+  onLocationSelect={async (lat, lng) => {
+    try {
+      const res = await fetch(
+        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=18&addressdetails=1`,
+        {
+          headers: {
+            "Accept-Language": "en",
+          },
+        }
+      );
+
+      const data = await res.json();
+
+      const address =
+        data?.display_name ||
+        "Address not found";
+
+      setForm(prev => ({
+        ...prev,
+        location: address,
+      }));
+
+      setShowMap(false); // close modal
+    } catch (error) {
+      console.error("Reverse geocoding failed", error);
+    }
+  }}
+/>
+        </div>
+
+        {/* Footer – Cancel only (selection auto-saves) */}
+        <div className="p-5 border-t bg-gray-50 flex justify-end">
+          <button
+            onClick={() => setShowMap(false)}
+            className="px-8 py-3 bg-gray-300 hover:bg-gray-400 text-gray-800 rounded-lg transition font-medium"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  )}
+</div>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">Full Name</label>
@@ -4427,7 +4497,7 @@ export default function BookingPage() {
               <textarea
                 name="notes"
                 rows={4}
-                placeholder="Allergies, preferred setup time, decorations, delivery instructions..."
+                placeholder="Allergies, preferred setup time, decorations, occasion, delivery instructions..."
                 value={form.notes}
                 onChange={handleChange}
                 className="w-full px-5 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 resize-none"
@@ -4453,22 +4523,36 @@ export default function BookingPage() {
                   <dt className="font-medium">Location</dt>
                   <dd className="font-semibold break-words">{form.location || "—"}</dd>
                 </div>
+                  {form.withStation && (
+    <div className="flex justify-between text-gray-600">
+      <span>Station Setup</span>
+      <span>AED {selectedCart?.stationPrice}</span>
+    </div>
+  )}
+
+<div className="flex justify-between text-amber-600 font-medium">
+  <span>
+    Refundable within 24 hrs (if no items are missing or damaged by the client)
+  </span>
+  <span>AED {REFUNDABLE_DEPOSIT}</span>
+</div>
 
                 <div className="pt-4 border-t border-emerald-200">
-                  <dt className="font-medium mb-2">Selected Items</dt>
-                  <dd className="text-gray-600">
-                    {Object.keys(form.selectedItems).length > 0 ? (
-                      <div className="space-y-3">
+                  <dt className="font-medium mb-2 text-primary">Selected Items</dt>
+                  <dd className="text-gray-600 ">
+                    {Object.keys(form.selectedItems).length > 0 ? ( 
+                      <div className="space-y-3  ">
                         {Object.entries(form.selectedItems).map(([sectionId, items]) => (
                           items.length > 0 && (
                             <div key={sectionId}>
-                              <p className="font-medium capitalize">{sectionId}</p>
-                              <div className="space-y-1">
+                              <p className="font-medium capitalize ">{sectionId}</p>
+                              <div className="space-y-1 ">
                                 {items.map((item) => (
-                                  <div key={item.name} className="flex justify-between text-sm">
+                                  <div key={item.name} className="flex justify-between text-sm text-black">
                                     <span>{item.name}</span>
-                                    <span>{item.price ? `${item.price} AED` : "Free"}</span>
+                                    {/* <span>{item.price ? `${item.price} AED` : "Free"}</span> */}
                                   </div>
+                                  
                                 ))}
                               </div>
                             </div>
@@ -4500,6 +4584,8 @@ export default function BookingPage() {
               </dl>
             </div>
 
+            
+
             <button
               type="submit"
               className="w-full bg-primary hover:bg-primary text-white py-5 rounded-xl font-bold text-xl shadow-lg transition-all transform hover:scale-[1.02] active:scale-100"
@@ -4508,7 +4594,30 @@ export default function BookingPage() {
             </button>
           </div>
         </motion.form>
+
       </div>
+{showMap && (
+  <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+    <div className="bg-white rounded-2xl w-[95%] md:w-[800px] p-6 relative">
+
+      <h3 className="text-xl font-bold mb-4">Select Location</h3>
+
+      <div className="w-full h-[400px] rounded-xl overflow-hidden">
+        <LocationPicker onLocationSelect={handleLocation} />
+      </div>
+
+      <div className="flex justify-end mt-4">
+        <button
+          type="button"
+          onClick={() => setShowMap(false)}
+          className="px-4 py-2 bg-gray-300 rounded-lg"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+)}
     </main>
   );
 }

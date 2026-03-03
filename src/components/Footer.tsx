@@ -17,7 +17,7 @@ const Footer = () => (
 
   {/* Main Button */}
   <a
-    href="https://wa.me/919999999999"
+    href="https://wa.me/971547122228"
     target="_blank"
     rel="noopener noreferrer"
     className="relative inline-flex items-center justify-center 
@@ -58,9 +58,9 @@ const Footer = () => (
         <div>
           <h4 className="font-display text-lg font-semibold mb-4">Contact</h4>
           <div className="flex flex-col gap-3 text-sm text-primary-foreground/70 font-body">
-            <span className="flex items-center gap-2"><Phone size={16} /> +1 (555) 123-4567</span>
-            <span className="flex items-center gap-2"><Mail size={16} /> hello@boardandbites.com</span>
-            <span className="flex items-center gap-2"><MapPin size={16} /> New York, NY</span>
+            <span className="flex items-center gap-2"><Phone size={16} /> +971 547122228</span>
+            <span className="flex items-center gap-2"><Mail size={16} /> Boardandbites.ae@outlook.com</span>
+            <span className="flex items-center gap-2"><MapPin size={16} /> Nad Al Hammar, Dubai, UAE</span>
           </div>
         </div>
         <div>

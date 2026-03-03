@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, UtensilsCrossed, CalendarDays, ImageIcon, HelpCircle, Phone, X, Menu, Info, Sparkles,CreditCard,UserRoundCog} from "lucide-react";
+import { Home, UtensilsCrossed, CalendarDays, ImageIcon, HelpCircle, Phone, X, Menu, Info, Sparkles,CreditCard,UserRoundCog, User, HeartPulseIcon, CirclePlus } from "lucide-react";
+
 
 const navItems = [
   { icon: Home, label: "Home", href: "/" },
@@ -10,10 +11,11 @@ const navItems = [
   { icon: CalendarDays, label: "Book Now", href: "/booking" },
   // { icon: Phone, label: "AddCart", href: "/cart" },
     { icon:CreditCard, label: "Payment", href: "#gallery" },
-      { icon:UserRoundCog, label: "Service", href: "/services" },
+      { icon:CirclePlus, label: "Add On", href: "/add-on" },
   { icon: ImageIcon, label: "Gallery", href: "/gallery" },
   { icon: HelpCircle, label: "FAQs", href: "/faq" },
   { icon: Phone, label: "Contact", href: "/contact" },
+   { icon: User, label: "Login", href: "/login" },
 ]; 
 
 const FloatingNav = () => {

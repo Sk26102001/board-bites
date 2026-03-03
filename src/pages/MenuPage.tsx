@@ -1080,13 +1080,13 @@ export default function MenuPage() {
                     <div className="grid md:grid-cols-2 gap-8">
                       <div>
                         <p className="text-[#5f7a47] text-lg font-medium">
-                          Dubai - Abu Dhabi - Sharjah - Al Ain:
+                          Ajman  -  Sharjah:
                         </p>
                         <p className="text-2xl font-bold text-[#6b8e23] mt-2">200 AED</p>
                       </div>
                       <div>
                         <p className="text-[#5f7a47] text-lg font-medium">
-                          Ras Al Khaimah - Fujairah - Ajman - Um Al Quwain - Any City Outside Abu Dhabi and Al Ain:
+                          Ras Al Khaimah - Fujairah - Dubai - Um Al Quwain - Any City Outside Abu Dhabi and Al Ain:
                         </p>
                         <p className="text-2xl font-bold text-[#6b8e23] mt-2">300 AED</p>
                       </div>
@@ -1128,8 +1128,8 @@ export default function MenuPage() {
 
                   <p className="mt-8 text-base text-[#71797e]">
                     Or contact us directly at{" "}
-                    <a href="tel:+971xxxxxxxx" className="text-[#6b8e23] hover:underline font-medium">
-                      +971 XX XXX XXXX
+                    <a href="tel:+971 547122228" className="text-[#6b8e23] hover:underline font-medium">
+                      +971 547122228
                     </a>{" "}
                     • WhatsApp available
                   </p>
