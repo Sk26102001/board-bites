@@ -60,24 +60,24 @@ const testimonials = [
   { name: "Sarah M.", role: "Wedding", text: "Board & Bites made our wedding absolutely stunning. The cheese boards were a showstopper!", rating: 5 },
   { name: "Ahmed K.", role: "Corporate", text: "Professional, punctual, and the food was incredible. Our team loved the breakfast boards.", rating: 5 },
   { name: "Lina R.", role: "Birthday", text: "The sweet board was a dream! Beautiful presentation and everything tasted amazing.", rating: 5 },
-  { name: "James T.", role: "Private", text: "Exceptional quality. The charcuterie board was artfully arranged and perfectly balanced.", rating: 5 },
-  { name: "Elena G.", role: "Brunch", text: "The freshest ingredients I've ever had in a catering service. Simply perfection.", rating: 5 },
-  { name: "Marcus V.", role: "Events", text: "A truly artisan experience. They don't just serve food; they create memories.", rating: 5 },
+  // { name: "James T.", role: "Private", text: "Exceptional quality. The charcuterie board was artfully arranged and perfectly balanced.", rating: 5 },
+  // { name: "Elena G.", role: "Brunch", text: "The freshest ingredients I've ever had in a catering service. Simply perfection.", rating: 5 },
+  // { name: "Marcus V.", role: "Events", text: "A truly artisan experience. They don't just serve food; they create memories.", rating: 5 },
 ];
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   
   // Logic to ensure we don't slide into empty space
-  const maxIndex = testimonials.length - 3; 
+  // const maxIndex = testimonials.length - 3; 
 
-  const next = () => {
-    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
-  };
+  // const next = () => {
+  //   setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+  // };
 
-  const prev = () => {
-    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
-  };
+  // const prev = () => {
+  //   setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
+  // };
 
   return (
     <section className="py-24 px-6 bg-[#fdfcf0] overflow-hidden">
@@ -94,7 +94,7 @@ const Testimonials = () => {
           </h2>
           
           {/* NAVIGATION BUTTONS */}
-          <div className="flex gap-4">
+          {/* <div className="flex gap-4">
             <button 
               onClick={prev} 
               className="w-12 h-12 rounded-full border border-stone-200 flex items-center justify-center text-[#2d3a2a] hover:bg-[#2d3a2a] hover:text-white transition-all duration-500 shadow-sm bg-white"
@@ -107,7 +107,7 @@ const Testimonials = () => {
             >
               <ChevronRight size={18} />
             </button>
-          </div>
+          </div> */}
         </div>
 
         {/* SLIDING VIEWPORT */}
@@ -149,13 +149,13 @@ const Testimonials = () => {
         </div>
 
         {/* PAGINATION LINE */}
-        <div className="mt-16 max-w-xs mx-auto h-[2px] bg-stone-200 rounded-full overflow-hidden">
+        {/* <div className="mt-16 max-w-xs mx-auto h-[2px] bg-stone-200 rounded-full overflow-hidden">
           <motion.div 
             className="h-full bg-[#88a382]"
             animate={{ width: `${((currentIndex + 1) / (maxIndex + 1)) * 100}%` }}
             transition={{ duration: 0.5 }}
           />
-        </div>
+        </div> */}
       </div>
     </section>
   );
